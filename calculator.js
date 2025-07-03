@@ -7,12 +7,13 @@ export function add(numbers) {
     const parts = numbers.split('\n');
     const delimiterPart = parts[0].slice(2);
 
-    const match = delimiterPart.match(/\[(.+?)\]/);
-    if (match) {
-      const customDelimiter = match[1];
-      delimiter = new RegExp(customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const matches = [...delimiterPart.matchAll(/\[([^\]]+)\]/g)];
+
+    if (matches.length > 0) {
+      const delimiters = matches.map(m => m[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      delimiter = new RegExp(delimiters.join('|'));
     } else {
-      delimiter = new RegExp(delimiterPart);
+      delimiter = new RegExp(delimiterPart.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     }
 
     numbers = parts[1];
