@@ -5,6 +5,17 @@ This project implements the classic **String Calculator Kata** using **Test-Driv
 
 ---
 
+## ⚠️ Important: ES6 Modules & Jest
+
+> 🟢 This project uses **ES6 Modules** (`type: "module"` in `package.json`).  
+> 🔧 Therefore, Jest runs with **experimental flags internally** to support ES6 modules.  
+>  
+> **You don't need to manually configure these flags if you're using the provided setup**, but keep this in mind if you see experimental warnings from Node during test runs.  
+>  
+> 🟠 If you rewrite the project using **CommonJS** syntax (`require`, `module.exports`) and remove `"type": "module"` from `package.json`, you can run Jest directly without any experimental flag requirements.  
+
+---
+
 ## 🚀 Features
 
 ✅ Returns 0 for an empty string  
@@ -51,16 +62,6 @@ npm test
 
 ---
 
-## ⚠️ Important: ES6 Modules & Jest
-
-> 🟢 This project uses **ES6 Modules** (`type: "module"` in `package.json`).  
-> 🔧 Therefore, Jest runs with **experimental flags internally** to support ES6 modules.  
->  
-> **You don't need to manually configure these flags if you're using the provided setup**, but keep this in mind if you see experimental warnings from Node during test runs.  
->  
-> 🟠 If you rewrite the project using **CommonJS** syntax (`require`, `module.exports`) and remove `"type": "module"` from `package.json`, you can run Jest directly without any experimental flag requirements.  
-
----
 
 ## ✅ Example Usages
 
