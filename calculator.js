@@ -5,12 +5,21 @@ export function add(numbers) {
 
   if (numbers.startsWith('//')) {
     const parts = numbers.split('\n');
-    delimiter = new RegExp(parts[0].slice(2));
+    const delimiterPart = parts[0].slice(2);
+
+    const match = delimiterPart.match(/\[(.+?)\]/);
+    if (match) {
+      const customDelimiter = match[1];
+      delimiter = new RegExp(customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    } else {
+      delimiter = new RegExp(delimiterPart);
+    }
+
     numbers = parts[1];
   }
 
   const numArray = numbers.split(delimiter).map(Number);
-  
+
   const negatives = numArray.filter(n => n < 0);
   if (negatives.length > 0) {
     console.log(`Negative numbers detected: ${negatives.join(",")}`);
