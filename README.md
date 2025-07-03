@@ -16,6 +16,11 @@ This project implements the classic **String Calculator Kata** using **Test-Driv
 
 ---
 
+## 🧪Sample Output
+![Sample Output](./screenshots/Sample_Output.png)
+
+---
+
 ## 🚀 Features
 
 ✅ Returns 0 for an empty string  
