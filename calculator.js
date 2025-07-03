@@ -1,3 +1,4 @@
+//To ensure clean and modern code Base, I use ES6 syntax
 export function add(numbers) {
   if (numbers === "") return 0;
 

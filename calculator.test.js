@@ -1,3 +1,4 @@
+//To ensure clean and modern code Base, I use ES6 syntax
 import { add } from './calculator.js';
 
 describe('String Calculator', () => {
