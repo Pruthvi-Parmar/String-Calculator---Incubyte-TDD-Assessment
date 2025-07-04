@@ -67,6 +67,21 @@ npm test
 
 ---
 
+# 💻 CLI Usage
+
+You can also use the calculator directly from your terminal:
+
+```bash
+node cli.js "1,2"
+node cli.js "1,2\n3"
+node cli.js "//[***]\n1***2***3"
+```
+
+> ℹ️ **Note:** On PowerShell, use a backtick (\`) for newline: `node cli.js "1,2\`n3"\`
+>
+
+---
+
 
 ## ✅ Example Usages
 
