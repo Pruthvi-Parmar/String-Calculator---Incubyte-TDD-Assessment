@@ -24,9 +24,8 @@ export function add(numbers, start, end) {
         numbers = parts[1];
 
         const numArray = numbers.split(delimiter).map(Number);
-        return numArray
-          .filter((n) => n <= 500)
-          .reduce((sum, num) => sum * num, 1);
+
+        return ansForMul(numArray, (ope = "*"), numbers);
       }
     }
 
@@ -40,14 +39,25 @@ export function add(numbers, start, end) {
     console.log(`Negative numbers detected: ${negatives.join(",")}`);
     throw new Error(`negative numbers not allowed ${negatives.join(",")}`);
   }
+  let filteredArray = numArray.filter((n) => n <= 500);
 
   if (start) {
-    return numArray
-      .filter((n) => n <= 500)
-      .filter((n) => n >= start && n <= end)
-      .reduce((sum, num) => sum + num, 0);
+    return ansForDiff(filteredArray, start, end);
   } else {
-    return numArray.filter((n) => n <= 500).reduce((sum, num) => sum + num, 0);
+    return filteredArray.reduce((sum, num) => sum + num, 0);
   }
+}
 
+function ansForMul(filteredArray, ope, numbers, start, end) {
+  if (ope == "*") {
+    return filteredArray
+      .filter((n) => n <= 500)
+      .reduce((sum, num) => sum * num, 1);
+  }
+}
+
+function ansForDiff(filteredArray, start, end) {
+  return filteredArray
+    .filter((n) => n >= start && n <= end)
+    .reduce((sum, num) => sum + num, 0);
 }
